@@ -1,6 +1,6 @@
 # Created by USER at 23/04/2025
-Feature: # Enter
-  # Enter feature description here
+Feature: Settings
+  Settings feature contains reelly social media links and profile settings.
 
   Scenario: Users can access WhatsApp and Telegram communities
     Given Open login page

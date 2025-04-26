@@ -6,5 +6,5 @@ class Header(Page):
     SETTINGS_BTN = (By.CSS_SELECTOR, "[class*='settings-link']")
 
     def open_settings(self):
-        self.click(*self.SETTINGS_BTN)
+        self.wait_until_clickable_click(*self.SETTINGS_BTN)
 
