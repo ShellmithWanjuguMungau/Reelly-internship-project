@@ -23,7 +23,7 @@ def browser_init(context):
     ## HEADLESS MODE ####
     options = webdriver.FirefoxOptions()
     options.add_argument('--headless')
-    options.add_argument("--window-size=1920,1080")
+    options.add_argument("--window-size=1920,1080") #screenshots saved
     service = Service(GeckoDriverManager().install())
     context.driver = webdriver.Firefox(
         options=options,
