@@ -5,9 +5,9 @@ https://www.careerist.com/automation
 
 
 # Headless mode screenshots
-![Loginpage.png](Screenshots/Loginpage.png)
-![telegrampage.png](Screenshots/telegrampage.png)
-![whatsapppage.png](Screenshots/whatsapppage.png)
+![Loginpage.png](support/Loginpage.png)
+![telegrampage.png](support/telegrampage.png)
+![whatsapppage.png](support/whatsapppage.png)
 
 # Browserstack screenshot
-![MacOS_cloud_testing.png](Screenshots/MacOS_cloud_testing.png)
+![MacOS_cloud_testing.png](support/MacOS_cloud_testing.png)
