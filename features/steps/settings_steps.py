@@ -1,8 +1,19 @@
 from behave import given, when, then
 import time
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import wait
+
+SUPPORT_LNK = (By.CSS_SELECTOR, "[href*='whatsapp.com']")
+
 
 @when('Click on the support option')
 def click_on_support_option(context):
+    wait = WebDriverWait(context.driver, 10)
+    support_element =wait.until(EC.presence_of_element_located((SUPPORT_LNK)))
+
+    context.driver.execute_script("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", support_element)
     context.app.settings_page.click_support_lnk()
 
 @when('Switch to the new tab')

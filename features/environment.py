@@ -4,6 +4,8 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from support.logger import logger
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
 
 from app.application import Application
 
@@ -13,9 +15,19 @@ def browser_init(context,scenario_name):
     :param context: Behave context
     """
     #Chrome driver
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service)
+
+    #Mobile emulation
+    # mobile_emulation = { "deviceName": "Nexus 5" }
+    # mobile_emulation = {"deviceName": "iPad Mini"}
+    mobile_emulation = {"deviceName": "Surface Duo"}
+    chrome_options = Options()
+    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+    context.driver = webdriver.Chrome(options=chrome_options)
+
+
 
     #Firefox driver
     # driver_path = GeckoDriverManager().install()
@@ -33,18 +45,18 @@ def browser_init(context,scenario_name):
     # )
     #
 
-    ### BROWSERSTACK ###
+    # ### BROWSERSTACK ###
     # bs_user = 'shellytest_D1tdGe'
     # bs_key = '7CWxNz9grwiAxQr8Jyk4'
     # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
     #
     # options = Options()
     # bstack_options = {
-    #     "os": "OS X",
-    #     "osVersion": "Ventura",
-    #     "browserVersion": "latest",
-    #     'browserName': 'chrome',
-    #     'sessionName': scenario_name,
+    #     "deviceName": "iPhone 15 Pro",
+    #     "osVersion": "17",
+    #     "realMobile": "true",
+    #     "browserName": "Safari",
+    #     "sessionName": scenario_name,
     # }
     # options.set_capability('bstack:options', bstack_options)
     # context.driver = webdriver.Remote(command_executor=url, options=options)
